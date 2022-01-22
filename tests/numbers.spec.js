@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
 
+const { TestScheduler } = require('jest');
 const numbers = require('../src/numbers');
 
 /*
@@ -16,10 +17,23 @@ const numbers = require('../src/numbers');
 
 describe('2 - Implemente os casos de teste para a função `numbers`', () => {
   it('Verifica se a função `numbers`retorna `true` quando o array contém apenas numeros e falso caso contrário', () => {
-    fail('Teste vazio!');
+    
     // Escreva um teste em que a função recebe [1, 2, 3, 4, 5] e retorna true
     // Escreva um teste em que a função recebe [1, 2, '3', 4, 5] e retorna false
     // Escreva um teste em que a função recebe [1, 'a', 3] e retorna false
     // Escreva um teste em que a função recebe [' '] e retorna false
+  });
+
+  test('Escreva um teste em que a função recebe [1, 2, 3, 4, 5] e retorna true', () => {
+    expect(numbers([1, 2, 3, 4, 5])).toEqual(true);
+  });
+  test('Escreva um teste em que a função recebe [1, 2, \'3\', 4, 5] e retorna false', () => {
+    expect(numbers([1, 2, '3', 4, 5])).not.toEqual(true)
+  });
+  test('Escreva um teste em que a função recebe [1,, \'a\', 3] e retorna false', () => {
+    expect(numbers([1, 'a', 3])).toEqual(false)
+  });
+  test(' Escreva um teste em que a função recebe [\' \'] e retorna false', () => {
+    expect(numbers([' '])).not.toEqual()
   });
 });
