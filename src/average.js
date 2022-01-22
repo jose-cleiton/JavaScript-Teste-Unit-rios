@@ -14,7 +14,7 @@
 */
 
 const average = (array) => {
-  let totalElementosArray=0
+  let totalElementosArray = 0;
   let atual;
   let tamanhoArray = array.length;
   let mediaAritimeticaArray = 0;
@@ -22,7 +22,7 @@ const average = (array) => {
     return undefined;
   }
 
-  for(let i in array){
+  for (let i = 0; i < array.length; i += 1) {
     atual = array[i];
     
     if (typeof atual !== 'number') {
@@ -30,20 +30,10 @@ const average = (array) => {
     }    
     totalElementosArray += atual;
   }
-     mediaAritimeticaArray =  totalElementosArray/tamanhoArray;
+     mediaAritimeticaArray = totalElementosArray / tamanhoArray;
   return Math.round(mediaAritimeticaArray);
 };
 
- 
-
-
-
-
-
-
-
-
   // add your implementation here
 
-
-module.exports = average
+module.exports = average;
