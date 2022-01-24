@@ -94,56 +94,31 @@
 // que percorre por todos os itens de `objetoRetornado.consumption`, soma o preço deles e retorna o valor somado acrescido de 10%.
 // DICA: para isso, você precisará percorrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-
-let obj = { food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} };
-
-const createMenu = (objetoPassadoPorParametro) => {
-let consumo =[]
-  return {fetchMenu: () =>objetoPassadoPorParametro,
-          consumption :  consumo,
-          order: (pedido) => consumo.push(pedido),
-          pay : () => pagar(consumo, objetoPassadoPorParametro)
-          
-  }
-};
-const objetoRetornado = createMenu(obj);
-
+let obj = { food: { coxinha: 3.9, sopa: 9.9 }, drink: { agua: 3.9, cerveja: 6.9 } };
 const pagar = (consumo, objetoPassadoPorParametro) => {
-  let total=0;
-  for(let i=0; i< consumo.length; i+=1 ) {
+  let total = 0;
+  for (let i = 0; i < consumo.length; i += 1) {
       let consumoAtual = consumo[i];
-      let comida = objetoPassadoPorParametro.food[consumoAtual]
-      let bebida = objetoPassadoPorParametro.drink[consumoAtual]
-       if(typeof comida === 'number') {
+      let comida = objetoPassadoPorParametro.food[consumoAtual];
+      let bebida = objetoPassadoPorParametro.drink[consumoAtual];
+       if (typeof comida === 'number') {
         total += comida;
        } else if (typeof bebida === 'number') {
         total += bebida;
-       }    
-
+       }
   }
 
- return total*1.1;
-
-}
-
-
-
-
-
-let myMenu = createMenu(obj);
-console.log('1 vez ' + myMenu.consumption);
-myMenu.order('coxinha')
-console.log('2 vez ' + myMenu.consumption);
-myMenu.order('cerveja')
-console.log('3 vez ' + myMenu.consumption);
-myMenu.order('sopa')
-console.log('4 vez ' + myMenu.consumption);
-let conta = myMenu.pay();
-
-console.log('A conta é: ' + conta);
-console.log(objetoRetornado.consumption);
-
-
-
+ return total * 1.1;
+};
+const createMenu = (objetoPassadoPorParametro) => {
+let consumo = [];
+  return { fetchMenu: () => objetoPassadoPorParametro,
+          consumption: consumo,
+          order: (pedido) => consumo.push(pedido),
+          pay: () => pagar(consumo, objetoPassadoPorParametro),
+          
+  };
+};
+const objetoRetornado = createMenu(obj);
 
 module.exports = createMenu;
