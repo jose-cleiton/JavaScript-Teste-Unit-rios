@@ -159,6 +159,6 @@ test('TESTE 8: Verifique se, ao chamar `objetoRetornado.pay()`, retorna-se a som
   objetoRetornado.order('agua');
   objetoRetornado.order('coxinha');
   expect(objetoRetornado.pay()).toEqual(12.870000000000001)
-})
+}) 
  
 });
